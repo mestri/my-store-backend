@@ -5,7 +5,10 @@ import Product from './models/Product';
 import cors from 'cors';
 
 config();
-mongoose.connect('mongodb://localhost:27017/mystore')
+
+
+// mongoose.connect('mongodb://localhost:27017/mystore')
+mongoose.connect('mongodb+srv://admin:admin@cluster0.r3lod3o.mongodb.net/?retryWrites=true&w=majority')
    .then(() =>  console.log('connection successful'))
    .catch((err) => console.error(err));
 
