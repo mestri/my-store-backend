@@ -12,10 +12,6 @@ export interface ProductModel {
     category: {
         type: String
     }
-    brand: {
-        type: String,
-        required: true
-    }
     picture: {
         type: String,
     }
@@ -34,10 +30,6 @@ const ProductSchema = new mongoose.Schema({
     },
     category: {
         type: String
-    },
-    brand: {
-        type: String,
-        required: true
     },
     picture: {
         type: String,

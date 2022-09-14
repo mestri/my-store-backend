@@ -2,6 +2,7 @@ import { config } from 'dotenv';
 import express, { Application, NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
 import Product from './models/Product';
+import cors from 'cors';
 
 config();
 mongoose.connect('mongodb://localhost:27017/mystore')
@@ -9,7 +10,18 @@ mongoose.connect('mongodb://localhost:27017/mystore')
    .catch((err) => console.error(err));
 
 const app: Application = express();
+
 app.use(express.json());
+
+app.use(cors())
+
+app.get('/products/:id', function (req, res, next) {
+  res.json({msg: 'This is CORS-enabled for all origins!'})
+})
+
+app.listen(80, function () {
+  console.log('CORS-enabled web server listening on port 80')
+})
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.send('Express server with TypeScript');
